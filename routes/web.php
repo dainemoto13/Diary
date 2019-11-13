@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// このURLの時、コントローラ@メソッド
+Route::get('/', 'DiaryController@index')->name('diary.index');
+Route::get('/diary/create', 'DiaryController@create')->name('diary.create');
+// Route::get('/diary/store', 'DiaryController@store')->('好きな名前');
+Route::post('/diary/store', 'DiaryController@store')->name('diary.store');
+
+// php artisan serve
