@@ -43,7 +43,7 @@ class DiaryController extends Controller
         // Diaryモデルのインスタンスを作成
         $diary = new Diary();
         // Diaryモデルを使って、DBに日記を保存
-        // $diary(インスタンス名)->カラム名 = カラムに設定したい値
+        // $diary(インスタンス名)->nameのカラム名 = カラムに設定したい値
         $diary->title = $request->title;
         $diary->body = $request->body;
 

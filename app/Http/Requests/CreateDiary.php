@@ -1,5 +1,5 @@
 <?php
-
+// ルールブック
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,6 +27,15 @@ class CreateDiary extends FormRequest
             // 'name属性' => 'してほしい入力チェック'required(lalavel限定)
             'title' => 'required|max:30',
             'body' => 'required'
+        ];
+    }
+
+    // エラー文言を表示する際の、name属性と表示名の設定をする
+    public function attributes()
+    {
+        return [
+            'title' => 'タイトル',
+            'body' => '本文'
         ];
     }
 }

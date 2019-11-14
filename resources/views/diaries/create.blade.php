@@ -25,7 +25,7 @@
 
 
             <form action="{{ route('diary.store') }}" method="POST">
-            <!-- xxs何ちゃら対策 -->
+            <!-- xxs何ちゃら対策 token値の生成-->
               @csrf
 
               <div class="form-group">
