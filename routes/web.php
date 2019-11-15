@@ -19,4 +19,9 @@ Route::post('/diary/store', 'DiaryController@store')->name('diary.store');
 
 Route::delete('/diary/{id}', 'DiaryController@destroy')->name('diary.destroy');
 
+Route::get('/diary/{id}/edit', 'DiaryController@edit')->name('diary.edit');
+
+//put リソースの返信
+Route::put('/diary/{id}/update', 'DiaryController@update')->name('diary.update');
+
 // php artisan serve

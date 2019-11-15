@@ -66,4 +66,34 @@ class DiaryController extends Controller
         return redirect()->route('diary.index');
 
     }
+    // 編集画面を表示する int制約
+    public function edit(int $id)
+    {
+        // 受け取ったIDを元に日記を取得
+        $diary = Diary::find($id);
+
+        return view('diaries.edit', [
+
+            // 画面に渡す時 キー => 値
+            // diaries.index => $diariesの全件を渡す
+            'diary' => $diary
+        ]);
+    }
+    // 日記を更新し、一覧画面にリダイレクトする
+    // - $id : 編集対象の日記のID
+    // - $request : リクエストの内容。ここに画面で入力された文字が格納されている。
+    // classは設計図、型どちらにもなる
+    public function update(int $id, CreateDiary $request)
+    {
+        //受け取ったIDを元に日記を取得
+        $diary = Diary::find($id);
+
+        //取得した日記のタイトル、本文を書き換える
+        $diary->title = $request->title;
+        $diary->body = $request->body;
+        // DBに保存
+        $diary->save();
+        // 一覧ページにリダイレクト
+        return redirect()->route('diary.index');
+    }
 }
