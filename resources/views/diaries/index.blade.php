@@ -14,6 +14,11 @@
     <p>{{$diary->body}}</p>
     <p>{{$diary->created_at}}</p>
 
+
+
+      {{-- <!-- GET {{}空白をつけない}--> --}}
+      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}"class="btn btn-success">編集</a>
+
    <!-- //削除するためのform (webからの)-->
     <form action="{{ route('diary.destroy', ['id' => $diary->id]) }}" method="POST" class="d-inline">
     @csrf
