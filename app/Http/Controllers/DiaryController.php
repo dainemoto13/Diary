@@ -77,6 +77,13 @@ class DiaryController extends Controller
     // 編集画面を表示する int制約
     public function edit(Diary $diary)
     {
+        // ログインユーザーが日記の投稿者かチェックする
+        if (Auth::user()->id != $diary->user_id) {
+            // 投稿者とログインユーザーが違う場合
+            abort(403);
+
+        }
+
         // 受け取ったIDを元に日記を取得
         // $diary = Diary::find($id);
 
@@ -95,6 +102,13 @@ class DiaryController extends Controller
     {
         //受け取ったIDを元に日記を取得
         $diary = Diary::find($id);
+
+
+        // ログインユーザーが日記の投稿者かチェックする
+        if (Auth::user()->id != $diary->user_id) {
+            // 投稿者とログインユーザーが違う場合
+            abort(403);
+        }
 
         //取得した日記のタイトル、本文を書き換える
         $diary->title = $request->title;
