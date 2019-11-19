@@ -1,4 +1,7 @@
-@extends('layout')
+{{-- @extends('layout') --}}
+{{-- 11/18追加 --}}
+@extends('layouts.app')
+{{-- 11/18追加 --}}
 
 @section('title', '編集')
 
