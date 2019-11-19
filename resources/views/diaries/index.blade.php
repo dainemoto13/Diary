@@ -1,14 +1,23 @@
 <!-- layout.blade.phpを読み込む -->
-@extends('layout')
+{{-- @extends('layout') --}}
+{{-- 11/18追加 --}}
+@extends('layouts.app')
+{{-- 11/18追加 --}}
 
 @section('title', '一覧')
 
 @section('content')
 
-  <a href="{{ route('diary.create') }}" class="btn btn-primary btn-block">新規投稿</a>
+  {{-- 11/18追加 --}}
+  {{-- <a href="{{ route('diary.create') }}" class="btn btn-primary btn-block">新規投稿</a> --}}
+
+  <div class="text-center">
+  <a href="{{ route('diary.create') }}" class="btn btn-primary ">新規投稿</a>
+  </div>
+  {{-- 11/18終了 --}}
+
+
   @foreach ($diaries as $diary)
-
-
   <div class="m-4 p-4 border border-primary">
     <p>{{$diary->title}}</p>
     <p>{{$diary->body}}</p>

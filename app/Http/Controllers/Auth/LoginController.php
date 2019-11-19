@@ -25,7 +25,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // 11/18追加
+    // protected $redirectTo = '/home';
+    protected $redirectTo = '/';
+    // 11/18終了
 
     /**
      * Create a new controller instance.
